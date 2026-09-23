@@ -9,7 +9,7 @@ FitLog is a modern, dark-themed gym companion web application built with **Next.
 
 ## 🚀 Live Demo & Repository
 - **Live Deployment**: https://workout-library-nine.vercel.app/
-- **GitHub Repository**: https://github.com/your-username/B14-A6-Fit-Log
+- **GitHub Repository**: https://github.com/foysalhridoy/FITLOG-WORKOUT-LIBRARY
 
 ---
 
