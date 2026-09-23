@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "404 — Missed that lift | FitLog",
+  title: "404 - Missed that lift | FitLog",
 };
 
 export default function NotFound() {
@@ -65,7 +65,7 @@ export default function NotFound() {
           fill="#E8EAEF"
         />
       </svg>
-      <h1 className="text-4xl">404 — Missed that lift</h1>
+      <h1 className="text-4xl font-heading">404 - Missed that lift</h1>
       <p className="max-w-md text-base-content/70">
         The page you wanted is not in the library. Head back to the floor and
         pick a workout that exists.

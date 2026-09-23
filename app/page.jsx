@@ -4,7 +4,7 @@ import ExerciseCard from "../components/ExerciseCard";
 import { getAllExercises } from "../lib/api";
 
 export const metadata = {
-  title: "FitLog — Workout Library",
+  title: "FitLog - Workout Library",
   description:
     "Browse gym workouts, build today's plan, and track weekly calories with FitLog.",
 };

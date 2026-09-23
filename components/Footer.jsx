@@ -11,7 +11,7 @@ export default function Footer() {
           FitLog
         </Link>
         <p className="text-sm text-base-content/70">
-          © 2026 FitLog — Workout Library. Train hard, log honest.
+          © 2026 FitLog - Workout Library. Train hard, log honest.
         </p>
       </div>
     </footer>
