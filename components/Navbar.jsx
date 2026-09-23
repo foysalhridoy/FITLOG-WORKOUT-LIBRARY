@@ -45,11 +45,11 @@ export default function Navbar() {
             </ul>
           </div>
           <Link
-            className="flex items-center gap-2 font-heading text-xl tracking-wide"
+            className="flex items-center gap-2 font-heading text-xl font-bold tracking-wider uppercase text-base-content"
             href="/"
           >
             <Dumbbell className="h-6 w-6 text-primary" aria-hidden="true" />
-            FitLog
+            FITLOG
           </Link>
         </div>
 

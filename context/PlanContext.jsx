@@ -34,7 +34,7 @@ export function PlanProvider({ children }) {
     } else if (res === "duplicate") {
       toast.error("Already in your plan");
     } else if (res === "full") {
-      toast.error("Today's plan is full — finish these first!");
+      toast.error("Today's plan is full - finish these first!");
     }
   }, []);
 
@@ -65,7 +65,7 @@ export function PlanProvider({ children }) {
     storageLogMuscleGroups(exercise.muscleGroups);
     storageRemoveFromPlan(exercise.id);
     setPlanIds(getPlan());
-    toast.success("Workout logged — nice work");
+    toast.success("Workout logged - nice work");
   }, []);
 
   const value = useMemo(

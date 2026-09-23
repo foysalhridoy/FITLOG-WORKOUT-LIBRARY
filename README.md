@@ -1,4 +1,4 @@
-# 💪 FitLog — Workout Library & Routine Planner
+# 💪 FitLog - Workout Library & Routine Planner
 
 > **Live Reference Replication**: [FitLog Live Site](https://workout-library-nine.vercel.app/)  
 > **Course Assignment**: B14-A6-Fit Log
@@ -52,7 +52,7 @@ FitLog is a modern, dark-themed gym companion web application built with **Next.
    - Instant **Remove (X)** action with undo capability.
 
 6. **Custom 404 Error Experience**:
-   - Branded 404 page featuring a custom SVG gym barbell illustration, error copy ("404 — Missed that lift"), and a direct call to action to return to the library.
+   - Branded 404 page featuring a custom SVG gym barbell illustration, error copy ("404 - Missed that lift"), and a direct call to action to return to the library.
 
 ---
 
