@@ -91,7 +91,7 @@ FitLog is a modern, dark-themed gym companion web application built with **Next.
    npm run build
    npm run start
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+   Open [http://localhost:3000](https://fitloog.vercel.app/) in your browser.
 
 ---
 
