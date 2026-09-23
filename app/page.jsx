@@ -17,19 +17,19 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="grid items-center gap-10 rounded-2xl border border-base-300 bg-base-200 p-8 lg:grid-cols-2 lg:p-12">
         <div className="space-y-6">
-          <p className="font-heading text-xs font-semibold tracking-[0.2em] text-primary uppercase sm:text-sm">
+          <p className="font-heading text-xs font-normal tracking-[0.2em] text-primary uppercase sm:text-sm">
             WORKOUT LIBRARY
           </p>
-          <h1 className="font-heading text-4xl font-bold uppercase leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-normal uppercase leading-[1.08] tracking-wide text-white">
             TRAIN WITH INTENT. LOG EVERY SET.
           </h1>
-          <p className="max-w-md text-base leading-relaxed text-base-content/75 sm:text-lg">
+          <p className="max-w-md text-sm sm:text-base font-normal leading-relaxed text-base-content/70">
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into
             today&apos;s plan, and watch the week&apos;s work add up.
           </p>
           <div>
             <a
-              className="btn btn-accent rounded-full px-7 font-semibold normal-case text-neutral hover:brightness-110"
+              className="btn btn-accent rounded-full px-6 py-2.5 font-normal text-sm normal-case text-neutral hover:brightness-110"
               href="#library"
             >
               Browse Workouts
@@ -49,10 +49,12 @@ export default async function HomePage() {
       </section>
 
       {/* The Library Section */}
-      <section id="library" className="space-y-6">
+      <section id="library" className="space-y-4">
         <div>
-          <h2 className="text-3xl">The Library</h2>
-          <p className="mt-2 text-base-content/70">
+          <h2 className="font-heading text-2xl sm:text-3xl font-normal uppercase tracking-wide text-white">
+            THE LIBRARY
+          </h2>
+          <p className="mt-1 text-sm font-normal text-base-content/70">
             Twelve lifts covering every major muscle group.
           </p>
         </div>

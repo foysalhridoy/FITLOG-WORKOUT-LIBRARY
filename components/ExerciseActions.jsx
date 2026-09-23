@@ -11,7 +11,7 @@ export default function ExerciseActions({ exerciseId }) {
     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
       <button
         type="button"
-        className="btn btn-accent rounded-2xl"
+        className="btn btn-accent rounded-full px-6 font-normal text-sm normal-case text-neutral hover:brightness-110"
         onClick={() => addToPlan(exerciseId)}
       >
         <CalendarPlus className="h-4 w-4" aria-hidden="true" />
@@ -19,7 +19,7 @@ export default function ExerciseActions({ exerciseId }) {
       </button>
       <button
         type="button"
-        className="btn btn-outline rounded-2xl"
+        className="btn btn-outline rounded-full px-6 font-normal text-sm normal-case"
         onClick={() => addToSaved(exerciseId)}
       >
         <Bookmark className="h-4 w-4" aria-hidden="true" />

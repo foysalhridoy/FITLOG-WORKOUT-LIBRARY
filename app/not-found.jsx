@@ -65,12 +65,15 @@ export default function NotFound() {
           fill="#E8EAEF"
         />
       </svg>
-      <h1 className="text-4xl font-heading">404 - Missed that lift</h1>
-      <p className="max-w-md text-base-content/70">
+      <h1 className="font-heading text-3xl sm:text-4xl font-normal uppercase tracking-wide text-white">404 - Missed that lift</h1>
+      <p className="max-w-md text-sm sm:text-base font-normal text-base-content/70">
         The page you wanted is not in the library. Head back to the floor and
         pick a workout that exists.
       </p>
-      <Link href="/" className="btn btn-accent rounded-2xl">
+      <Link
+        href="/"
+        className="btn btn-accent rounded-full px-6 py-2.5 font-normal text-sm normal-case text-neutral hover:brightness-110"
+      >
         Back to workouts
       </Link>
     </div>

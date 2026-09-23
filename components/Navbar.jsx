@@ -36,7 +36,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={pathname === link.href ? "bg-base-300 font-semibold text-accent" : ""}
+                    className={pathname === link.href ? "bg-base-300 font-normal text-accent" : ""}
                   >
                     {link.label}
                   </Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
             </ul>
           </div>
           <Link
-            className="flex items-center gap-2 font-heading text-xl font-bold tracking-wider uppercase text-base-content"
+            className="flex items-center gap-2 font-heading text-xl font-normal tracking-wider uppercase text-base-content"
             href="/"
           >
             <Dumbbell className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={isActive ? "bg-base-200 font-semibold text-accent" : ""}
+                    className={`font-normal text-sm ${isActive ? "bg-base-200 text-accent" : "text-base-content/80 hover:text-base-content"}`}
                   >
                     {link.label}
                   </Link>

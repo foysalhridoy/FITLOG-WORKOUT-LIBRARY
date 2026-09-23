@@ -64,7 +64,7 @@ export default function MyPlanView() {
   return (
     <div className="space-y-8">
       <header className="space-y-2">
-        <h1 className="text-4xl font-heading">My Plan</h1>
+        <h1 className="font-heading text-3xl sm:text-4xl font-normal uppercase tracking-wide text-white">My Plan</h1>
         <p className="text-base-content/70">
           Cap of five lifts for today. Finish them, then load more.
         </p>

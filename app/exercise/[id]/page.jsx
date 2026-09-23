@@ -45,7 +45,7 @@ export default async function ExerciseDetailPage({ params }) {
       </div>
 
       <div>
-        <h1 className="text-4xl font-heading">{exercise.name}</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-normal uppercase tracking-wide text-white">{exercise.name}</h1>
         <p className="mt-4 text-base-content/75">{exercise.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {exercise.muscleGroups?.map((group) => (
@@ -86,7 +86,7 @@ export default async function ExerciseDetailPage({ params }) {
           </div>
         </dl>
 
-        <h2 className="mt-8 text-2xl font-heading">Instructions</h2>
+        <h2 className="mt-8 text-2xl font-heading font-normal uppercase tracking-wide text-white">Instructions</h2>
         <ol className="mt-4 list-decimal space-y-3 pl-5">
           {exercise.instructions?.map((inst, index) => (
             <li key={index}>{inst}</li>
