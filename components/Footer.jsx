@@ -4,8 +4,11 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-base-300 bg-base-200">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
-        <Link className="flex items-center gap-2 font-heading text-lg font-normal tracking-wider uppercase text-base-content" href="/">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-center sm:flex-row sm:gap-4 sm:py-8 sm:text-left">
+        <Link
+          className="flex items-center justify-center gap-2 font-heading text-lg font-normal tracking-wider uppercase text-base-content"
+          href="/"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -27,7 +30,7 @@ export default function Footer() {
           </svg>
           FITLOG
         </Link>
-        <p className="text-sm text-base-content/70">
+        <p className="text-xs sm:text-sm text-base-content/70 text-center sm:text-right leading-relaxed">
           © 2026 FitLog - Workout Library. Train hard, log honest.
         </p>
       </div>
