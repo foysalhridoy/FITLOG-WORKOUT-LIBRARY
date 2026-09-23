@@ -1,6 +1,5 @@
 # 💪 FitLog - Workout Library & Routine Planner
 
-> **Live Reference Replication**: [FitLog Live Site](https://workout-library-nine.vercel.app/)  
 > **Course Assignment**: B14-A6-Fit Log
 
 FitLog is a modern, dark-themed gym companion web application built with **Next.js 14 (App Router)**, **Tailwind CSS**, and **DaisyUI**. It empowers users to browse 12 foundational gym workouts across every major muscle group, build a focused daily workout plan (capped at 5 lifts), save workouts for later, track active session metrics, and log sets with real-time feedback.
@@ -8,7 +7,7 @@ FitLog is a modern, dark-themed gym companion web application built with **Next.
 ---
 
 ## 🚀 Live Demo & Repository
-- **Live Deployment**: https://workout-library-nine.vercel.app/
+- **Live Deployment**: https://fitloog.vercel.app/
 - **GitHub Repository**: https://github.com/foysalhridoy/FITLOG-WORKOUT-LIBRARY
 
 ---
