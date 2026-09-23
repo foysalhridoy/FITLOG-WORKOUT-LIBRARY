@@ -15,7 +15,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="grid items-center gap-10 rounded-2xl border border-base-300 bg-base-200 p-8 lg:grid-cols-2 lg:p-12">
+      <section className="grid items-center gap-8 sm:gap-10 rounded-2xl border border-base-300 bg-base-200 p-5 sm:p-8 lg:grid-cols-2 lg:p-12">
         <div className="space-y-6">
           <p className="font-heading text-xs font-normal tracking-[0.2em] text-primary uppercase sm:text-sm">
             WORKOUT LIBRARY
