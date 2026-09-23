@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Check, Clock, Flame, Star, X, Search } from "lucide-react";
+import { Check, Clock, Flame, Star, X } from "lucide-react";
 import { usePlan } from "../../context/PlanContext";
 import { getAllExercises } from "../../lib/api";
 
@@ -14,12 +14,10 @@ export default function MyPlanPage() {
     markAsDone,
     removeFromPlan,
     removeFromSaved,
-    isMounted,
   } = usePlan();
 
   const [activeTab, setActiveTab] = useState("plan");
   const [sortBy, setSortBy] = useState("duration");
-  const [searchTerm, setSearchTerm] = useState("");
   const [exercises, setExercises] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,22 +37,9 @@ export default function MyPlanPage() {
 
   const activeIds = activeTab === "plan" ? planIds : savedIds;
 
-  const tabExercises = useMemo(() => {
-    return exercises.filter((ex) => activeIds.includes(ex.id));
-  }, [exercises, activeIds]);
-
   const sortedItems = useMemo(() => {
-    let list = [...tabExercises];
-    if (searchTerm.trim()) {
-      const q = searchTerm.toLowerCase().trim();
-      list = list.filter(
-        (ex) =>
-          ex.name.toLowerCase().includes(q) ||
-          ex.equipment.toLowerCase().includes(q) ||
-          ex.muscleGroups.some((mg) => mg.toLowerCase().includes(q))
-      );
-    }
-    list.sort((a, b) => {
+    const filtered = exercises.filter((ex) => activeIds.includes(ex.id));
+    const sorted = [...filtered].sort((a, b) => {
       if (sortBy === "duration") {
         return a.duration - b.duration;
       }
@@ -63,23 +48,23 @@ export default function MyPlanPage() {
       }
       return b.rating - a.rating;
     });
-    return list;
-  }, [tabExercises, searchTerm, sortBy]);
+    return sorted;
+  }, [exercises, activeIds, sortBy]);
 
   const totals = useMemo(() => {
-    return tabExercises.reduce(
+    return sortedItems.reduce(
       (acc, item) => ({
-        minutes: acc.minutes + (item.duration || 0),
-        calories: acc.calories + (item.caloriesBurned || 0),
+        minutes: acc.minutes + item.duration,
+        calories: acc.calories + item.caloriesBurned,
       }),
       { minutes: 0, calories: 0 }
     );
-  }, [tabExercises]);
+  }, [sortedItems]);
 
   return (
     <div className="space-y-8">
       <header className="space-y-2">
-        <h1 className="text-4xl font-heading">My Plan</h1>
+        <h1 className="text-4xl">My Plan</h1>
         <p className="text-base-content/70">
           Cap of five lifts for today. Finish them, then load more.
         </p>
@@ -89,7 +74,7 @@ export default function MyPlanPage() {
       <div className="stats stats-vertical w-full rounded-2xl border border-base-300 bg-base-200 shadow-none sm:stats-horizontal">
         <div className="stat">
           <div className="stat-title">Exercises</div>
-          <div className="stat-value text-primary">{tabExercises.length}</div>
+          <div className="stat-value text-primary">{sortedItems.length}</div>
         </div>
         <div className="stat">
           <div className="stat-title">Minutes</div>
@@ -101,7 +86,7 @@ export default function MyPlanPage() {
         </div>
       </div>
 
-      {/* Tabs, Search, and Sort controls */}
+      {/* Tabs and Sort controls */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div role="tablist" className="tabs tabs-box w-fit bg-base-200">
           <button
@@ -124,53 +109,39 @@ export default function MyPlanPage() {
           </button>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          {tabExercises.length > 0 && (
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Filter lifts..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="input input-bordered input-sm rounded-2xl pl-8 bg-base-200 w-full sm:w-44"
-              />
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-base-content/50" />
-            </div>
-          )}
-
-          <label className="form-control w-full sm:w-auto">
-            <span className="sr-only">Sort By</span>
-            <select
-              className="select select-bordered select-sm rounded-2xl bg-base-200"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-            >
-              <option value="duration">Sort by: Duration</option>
-              <option value="calories">Sort by: Calories</option>
-              <option value="rating">Sort by: Rating</option>
-            </select>
-          </label>
-        </div>
+        <label className="form-control w-full max-w-xs">
+          <span className="label-text mb-1">Sort By</span>
+          <select
+            className="select select-bordered rounded-2xl"
+            value={sortBy}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (val === "duration" || val === "calories" || val === "rating") {
+                setSortBy(val);
+              }
+            }}
+          >
+            <option value="duration">Duration</option>
+            <option value="calories">Calories</option>
+            <option value="rating">Rating</option>
+          </select>
+        </label>
       </div>
 
       {/* Workout list / Loading / Empty states */}
-      {isLoading || !isMounted ? (
+      {isLoading ? (
         <div className="rounded-2xl border border-dashed border-base-300 bg-base-200 p-10 text-center">
           <p className="text-lg font-heading">Loading workouts…</p>
         </div>
-      ) : tabExercises.length === 0 ? (
+      ) : sortedItems.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-base-300 bg-base-200 p-10 text-center">
-          <p className="text-lg font-heading uppercase tracking-wide">NOTHING HERE YET</p>
+          <p className="text-lg font-heading">Nothing here yet</p>
           <p className="mt-2 text-base-content/70">
             Browse the library and add a lift to get today moving.
           </p>
           <Link href="/" className="btn btn-accent mt-6 rounded-2xl">
             Go to workouts
           </Link>
-        </div>
-      ) : sortedItems.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-base-300 bg-base-200 p-8 text-center text-base-content/70">
-          No workouts found matching &quot;{searchTerm}&quot;.
         </div>
       ) : (
         <ul className="space-y-4">
